@@ -1,10 +1,6 @@
 from pythonforandroid.recipe import CompiledComponentsPythonRecipe
-from pythonforandroid.logger import shprint, info
-from pythonforandroid.util import current_directory
 from multiprocessing import cpu_count
 from os.path import join
-import glob
-import sh
 
 
 class NumpyRecipe(CompiledComponentsPythonRecipe):
@@ -13,8 +9,6 @@ class NumpyRecipe(CompiledComponentsPythonRecipe):
     url = 'https://pypi.python.org/packages/source/n/numpy/numpy-{version}.zip'
     site_packages_name = 'numpy'
     depends = ['setuptools', 'cython']
-    install_in_hostpython = True
-    call_hostpython_via_targetpython = False
 
     patches = [
         join('patches', 'hostnumpy-xlocale.patch'),
@@ -44,3 +38,4 @@ class NumpyRecipe(CompiledComponentsPythonRecipe):
 
 
 recipe = NumpyRecipe()
+
